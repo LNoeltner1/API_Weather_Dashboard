@@ -6,20 +6,112 @@
     <title></title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
   </head>
   <body>
-    <!--[if lt IE 7]>
-      <p class="browsehappy">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="#">upgrade your browser</a> to improve your experience.
-      </p>
-    <![endif]-->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- header -->
+    <header class="row">
+      <section class="col-md-4"></section>
+      <h1 class="col-md-4">Weather Dashboard</h1>
+      <section class="col-md-4"></section>
+    </header>
+    <br />
+    <!-- main page -->
+    <container class="row">
+      <div class="col-md-1"></div>
+      <!-- search box and city list -->
+      <container class="col-md-3">
+        <div class="row">
+          <h4 class="col-md 12">Search for a City:</h4>
+        </div>
+        <!-- ADD SEARCH BOX HERE -->
+        <div class="input-group md-form form-sm form-1 pl-0">
+          <div class="input-group-prepend">
+            <span class="input-group-text cyan lighten-2" id="basic-text1"
+              ><i class="fas fa-search text-white" aria-hidden="false"></i
+            ></span>
+          </div>
+          <input
+            class="form-control my-0 py-1"
+            type="text"
+            placeholder="Search"
+            aria-label="Search"
+          />
+        </div>
+        <br />
+        <section class="col-md-12" id="buttonList">
+          <button class="row" id="btnOne">Last viewed city</button>
+          <button class="row" id="btnTwo">Last viewed city</button>
+          <button class="row" id="btnThree">Last viewed city</button>
+          <button class="row" id="btnFour">Last viewed city</button>
+          <button class="row" id="btnFive">Last viewed city</button>
+          <button class="row" id="btnSix">Last viewed city</button>
+        </section>
+      </container>
+      <!-- right column with city weather and 5 day forecast -->
+      <container class="col-md-8">
+        <!-- contains detailed summary of dayZero's weather in the selected city -->
+        <container class="row" id="weatherDayZero">
+          <div class="row">
+            <div class="col-md-12">
+              <br />
+              <h3>Current City (mm.dd.yyyy) (icon of current conditions)</h3>
+              <hr />
+              <p>Temperature:</p>
+              <p>Humidity:</p>
+              <p>Wind Speed:</p>
+              <p>UV Index:</p>
+            </div>
+          </div>
+        </container>
+        <br />
+        <!-- Forecast Heading: stays constant -->
+        <h3 class="row" id="forecastHeading">5-Day Forecast:</h3>
+        <!-- 5-Day Forecast boxes -->
+        <container class="row" id="forecastSection">
+          <container class="col-md-2" id="dayOne">
+            <div class="row foreCastHeader" id="">date dayOne</div>
+            <img class="row" id="conditionsIcon" src="#" />
+            <div class="row">Temp:</div>
+            <div class="row">Humidity:</div>
+          </container>
+          <container class="col-md-2" id="dayTwo">
+            <div class="row foreCastHeader">date dayTwo</div>
+            <img class="row" id="conditionsIcon" src="#" />
+            <div class="row">Temp:</div>
+            <div class="row">Humidity:</div>
+          </container>
+          <container class="col-md-2" id="dayThree">
+            <div class="row foreCastHeader">date dayThree</div>
+            <img class="row" id="conditionsIcon" src="#" />
+            <div class="row">Temp:</div>
+            <div class="row">Humidity:</div>
+          </container>
+          <container class="col-md-2" id="dayFour">
+            <div class="row foreCastHeader">date dayFour</div>
+            <img class="row" id="conditionsIcon" src="#" />
+            <div class="row">Temp:</div>
+            <div class="row">Humidity:</div>
+          </container>
+          <container class="col-md-2" id="dayFive">
+            <div class="row foreCastHeader">date dayFive</div>
+            <img class="row" id="conditionsIcon" src="#" />
+            <div class="row">Temp:</div>
+            <div class="row">Humidity:</div>
+          </container>
+        </container>
+      </container>
+    </container>
+
+    <!-- various used scripts -->
     <script src="script.js" async defer></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      defer
+    ></script>
   </body>
 </html>
