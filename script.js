@@ -1,7 +1,3 @@
-// // "https://community-open-weather-map.p.rapidapi.com/?q=" +
-// //   "atlanta" +
-// //   "&apikey=1ad47af0b7msh04ed2b40a59c49dp1ecd9bjsn4fce9c9ae4fe";
-
 $("#searchBtn").on("click", function () {
   var apiKey = "b0346eaaabff07a925bd456a2c1cf5a6";
   var cityInput = $("input").val();
@@ -65,23 +61,22 @@ function getForeCast() {
   });
   getUV();
 }
-
+// !!!!!!!!GET THIS LAT/LONG LINK WORKING!!!!!!!!!!!!!//
 function getUV() {
   var apiKey = "b0346eaaabff07a925bd456a2c1cf5a6";
   var cityInput = $("input").val();
-  // var latitude = response.city.coord.lat;
-  // var longitude = response.city.coord.lon;
+  var latitude = response.city.coord.lat;
+  var longitude = response.city.coord.lon;
   var queryURL =
     "http://api.openweathermap.org/data/2.5/uvi?q=" +
     cityInput +
     ",&appid=" +
     apiKey +
-    "&units=imperial";
-  // + "&lat={" +
-  // latitude +
-  // "}&lon={" +
-  // longitude +
-  // "}";
+    "&units=imperial&lat={" +
+    latitude +
+    "}&lon={" +
+    longitude +
+    "}";
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -91,4 +86,9 @@ function getUV() {
   });
 }
 
-////rework html for api--make correct calls--look at pics on phone
+// QUESTIONS:
+//1. LAT/LONG LINK
+//2. ICONS WHERE???
+//3. TIME API OR INCLUDED IN WEATHER API??  NEED DATES FOR PAGE
+//4. LOCAL STORAGE AND PREPENDING BUTTONS
+//5. TWO-NAME CITY SEARCH BROKEN
