@@ -63,12 +63,16 @@
           <div class="row">
             <div class="col-md-12">
               <br />
-              <h3>Current City (mm.dd.yyyy) (icon of current conditions)</h3>
+              <h3 id="cityName">
+                Current City (mm.dd.yyyy) (icon of current conditions)
+              </h3>
               <hr />
-              <p>Temperature:</p>
-              <p>Humidity:</p>
-              <p>Wind Speed:</p>
-              <p>UV Index: *highlight color tells severity of index*</p>
+              <p id="currentTemp">Temperature:</p>
+              <p id="currentHumidity">Humidity:</p>
+              <p id="currentWind">Wind Speed:</p>
+              <p id="currentUV">
+                UV Index: *highlight color tells severity of index*
+              </p>
             </div>
           </div>
         </container>
@@ -78,34 +82,34 @@
         <!-- 5-Day Forecast boxes -->
         <container class="row" id="forecastSection">
           <container class="col-md-2" id="dayOne">
-            <div class="row foreCastHeader" id="">date dayOne</div>
+            <div class="row foreCastHeader">date dayOne</div>
             <img class="row" id="conditionsIcon" src="#" />
-            <div class="row">Temp:</div>
-            <div class="row">Humidity:</div>
+            <div class="row" id="oneTemp">Temp:</div>
+            <div class="row" id="oneHumidity">Humidity:</div>
           </container>
           <container class="col-md-2" id="dayTwo">
             <div class="row foreCastHeader">date dayTwo</div>
             <img class="row" id="conditionsIcon" src="#" />
-            <div class="row">Temp:</div>
-            <div class="row">Humidity:</div>
+            <div class="row" id="twoTemp">Temp:</div>
+            <div class="row" id="twoHumidity">Humidity:</div>
           </container>
           <container class="col-md-2" id="dayThree">
             <div class="row foreCastHeader">date dayThree</div>
             <img class="row" id="conditionsIcon" src="#" />
-            <div class="row">Temp:</div>
-            <div class="row">Humidity:</div>
+            <div class="row" id="threeTemp">Temp:</div>
+            <div class="row" id="threeHumidity">Humidity:</div>
           </container>
           <container class="col-md-2" id="dayFour">
             <div class="row foreCastHeader">date dayFour</div>
             <img class="row" id="conditionsIcon" src="#" />
-            <div class="row">Temp:</div>
-            <div class="row">Humidity:</div>
+            <div class="row" id="fourTemp">Temp:</div>
+            <div class="row" id="fourHumidity">Humidity:</div>
           </container>
           <container class="col-md-2" id="dayFive">
             <div class="row foreCastHeader">date dayFive</div>
             <img class="row" id="conditionsIcon" src="#" />
-            <div class="row">Temp:</div>
-            <div class="row">Humidity:</div>
+            <div class="row" id="fiveTemp">Temp:</div>
+            <div class="row" id="fiveHumidity">Humidity:</div>
           </container>
         </container>
       </container>
