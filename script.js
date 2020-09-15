@@ -14,14 +14,26 @@ $("#searchBtn").on("click", function () {
     method: "GET",
   }).then(function (response) {
     // console.log(response);
-    $("#cityName").text(response.name + ", " + response.sys.country);
+    $("#cityName").text(
+      response.name +
+        ", " +
+        response.sys.country +
+        "    " +
+        moment().format("LLLL")
+    );
     $("#currentTemp").text("Temperature: " + response.main.temp + " Farenheit");
     $("#currentHumidity").text("Humidity: " + response.main.humidity + "%");
     $("#currentWind").text("Wind Speed: " + response.wind.speed + " MPH");
     $("#btnOne").text(response.name + ", " + response.sys.country);
-    // $("#currentUV").text(response.wind.speed);
-    // console.log(response.weather[0]);
+
+    $("#dateDay1").text(moment().add(1, "days").format("l"));
+    $("#dateDay2").text(moment().add(2, "days").format("l"));
+    $("#dateDay3").text(moment().add(3, "days").format("l"));
+    $("#dateDay4").text(moment().add(4, "days").format("l"));
+    $("#dateDay5").text(moment().add(5, "days").format("l"));
   });
+  // $("#currentUV").text(response.wind.speed);
+  // console.log(response.weather[0]);
   getForeCast();
 });
 
@@ -65,8 +77,8 @@ function getForeCast() {
 function getUV() {
   var apiKey = "b0346eaaabff07a925bd456a2c1cf5a6";
   var cityInput = $("input").val();
-  var latitude = response.city.coord.lat;
-  var longitude = response.city.coord.lon;
+  var latitude = response.city.coord[0];
+  var longitude = response.city.coord[1];
   var queryURL =
     "http://api.openweathermap.org/data/2.5/uvi?q=" +
     cityInput +
