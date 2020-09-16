@@ -32,7 +32,7 @@ button {
   color: black;
   background-color: white;
   padding: 15px;
-  max-width: fit-content;
+  /* max-width: fit-content; */
 }
 
 #weatherDayZero {

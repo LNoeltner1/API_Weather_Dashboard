@@ -1,3 +1,9 @@
+cloudIcon = "fas fa-cloud";
+sunIcon = "far fa-sun";
+rainIcon = "fas fa-cloud-rain";
+moonIcon = "far fa-moon";
+coldIcon = "far fa-snowflake";
+
 $("#searchBtn").on("click", function () {
   var apiKey = "b0346eaaabff07a925bd456a2c1cf5a6";
   var cityInput = $("input").val();
@@ -18,19 +24,32 @@ $("#searchBtn").on("click", function () {
       response.name +
         ", " +
         response.sys.country +
-        "    " +
+        "  | |  " +
         moment().format("LLLL")
     );
+
+    // for (var i = 0; i < cityList.length; i++) {
+    //   console.log(cityList);
+    //   cityList = push("cityInput");
+    // }
+    $("#btnOne").text(cityInput + ", " + response.sys.country);
+    $("#btnTwo").text($("#btnOne"));
+    $("#btnThree").text($("#btnTwo"));
+    $("#btnFour").text($("#btnThree"));
+    $("#btnFive").text($("#btnFour"));
+    $("#btnSix").text($("#btnFive"));
+
     $("#currentTemp").text("Temperature: " + response.main.temp + " Farenheit");
     $("#currentHumidity").text("Humidity: " + response.main.humidity + "%");
     $("#currentWind").text("Wind Speed: " + response.wind.speed + " MPH");
-    $("#btnOne").text(response.name + ", " + response.sys.country);
 
     $("#dateDay1").text(moment().add(1, "days").format("l"));
     $("#dateDay2").text(moment().add(2, "days").format("l"));
     $("#dateDay3").text(moment().add(3, "days").format("l"));
-    $("#dateDay4").text(moment().add(4, "days").format("l"));
-    $("#dateDay5").text(moment().add(5, "days").format("l"));
+
+    localStorage.setItem("cityInput", JSON.stringify(cityInput));
+    var cityList = JSON.parse(localStorage.getItem("cityInput"));
+    cityList.unshift("cityInput");
   });
   // $("#currentUV").text(response.wind.speed);
   // console.log(response.weather[0]);
@@ -70,37 +89,39 @@ function getForeCast() {
     $("#fiveHumidity").text(
       "Humidity: " + response.list[35].main.humidity + "%"
     );
+    getUV(response.city.coord.lat, response.city.coord.lon);
   });
-  getUV();
 }
 // !!!!!!!!GET THIS LAT/LONG LINK WORKING!!!!!!!!!!!!!//
-function getUV() {
+function getUV(latitude, longitude) {
   var apiKey = "b0346eaaabff07a925bd456a2c1cf5a6";
   var cityInput = $("input").val();
-  var latitude = response.city.coord[0];
-  var longitude = response.city.coord[1];
   var queryURL =
     "http://api.openweathermap.org/data/2.5/uvi?q=" +
     cityInput +
-    ",&appid=" +
+    "&appid=" +
     apiKey +
-    "&units=imperial&lat={" +
+    "&lat=" +
     latitude +
-    "}&lon={" +
-    longitude +
-    "}";
+    "&lon=" +
+    longitude;
   $.ajax({
     url: queryURL,
     method: "GET",
   }).then(function (response) {
     // $("#currentUV").text(response);
     console.log(response);
+    $("#currentUV").text("UV Index: " + response.value);
+    if (response.value > 7) {
+      $("#currentUV").innerHighlight(red);
+    } else if (4 < response.value < 7) {
+      $("#currentUV").innerHighlight(yellow);
+    } else {
+      $("#currentUV").innerHighlight(red);
+    }
   });
 }
 
-// QUESTIONS:
-//1. LAT/LONG LINK
-//2. ICONS WHERE???
-//3. TIME API OR INCLUDED IN WEATHER API??  NEED DATES FOR PAGE
-//4. LOCAL STORAGE AND PREPENDING BUTTONS
-//5. TWO-NAME CITY SEARCH BROKEN
+$("#btnOne").on("click", function () {
+  cityInput = $("#btnOne").text();
+});
