@@ -114,13 +114,13 @@ function getUV(latitude, longitude) {
     // $("#currentUV").text(response);
     console.log(response);
     $("#currentUV").text("UV Index: " + response.value);
-    if (response.value > 7) {
-      $("#currentUV").innerHighlight(red);
-    } else if (4 < response.value < 7) {
-      $("#currentUV").innerHighlight(yellow);
-    } else {
-      $("#currentUV").innerHighlight(red);
-    }
+    // if (response.value > 7) {
+    //   $("#currentUV").innerHighlight(red);
+    // } else if (4 < response.value < 7) {
+    //   $("#currentUV").innerHighlight(yellow);
+    // } else {
+    //   $("#currentUV").innerHighlight(red);
+    // }
   });
 }
 
