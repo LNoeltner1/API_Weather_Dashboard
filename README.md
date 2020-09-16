@@ -6,7 +6,7 @@ The aim of this project was to create a weather forecasting page using OpenWeath
 
 1. The API URL's/Keys work perfectly fine on my computer, but GitHub Pages blocks the URLs, as it says they are unsecured (they are all written "https://...").
 
-![Screenshot](Assets\Screenshot.png)
+[Screenshot](Assets\Screenshot.png)
 
 [GitHub Deployed Site](https://lnoeltner1.github.io/API_Weather_Dashboard/)
 [Repository](https://github.com/LNoeltner1/API_Weather_Dashboard)
