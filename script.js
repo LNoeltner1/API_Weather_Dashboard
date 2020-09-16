@@ -1,14 +1,8 @@
-cloudIcon = "fas fa-cloud";
-sunIcon = "far fa-sun";
-rainIcon = "fas fa-cloud-rain";
-moonIcon = "far fa-moon";
-coldIcon = "far fa-snowflake";
-
 $("#searchBtn").on("click", function () {
   var apiKey = "b0346eaaabff07a925bd456a2c1cf5a6";
   var cityInput = $("input").val();
   var queryURL =
-    "http://api.openweathermap.org/data/2.5/weather?q=" +
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
     cityInput +
     "," +
     "&appid=" +
@@ -29,15 +23,12 @@ $("#searchBtn").on("click", function () {
     );
 
     // for (var i = 0; i < cityList.length; i++) {
-    //   console.log(cityList);
+    console.log(response);
     //   cityList = push("cityInput");
     // }
     $("#btnOne").text(cityInput + ", " + response.sys.country);
-    $("#btnTwo").text($("#btnOne"));
-    $("#btnThree").text($("#btnTwo"));
-    $("#btnFour").text($("#btnThree"));
-    $("#btnFive").text($("#btnFour"));
-    $("#btnSix").text($("#btnFive"));
+    $("#btnTwo").text($("#btnOne").val());
+    $("#btnThree").text($("#btnTwo").val());
 
     $("#currentTemp").text("Temperature: " + response.main.temp + " Farenheit");
     $("#currentHumidity").text("Humidity: " + response.main.humidity + "%");
@@ -46,6 +37,17 @@ $("#searchBtn").on("click", function () {
     $("#dateDay1").text(moment().add(1, "days").format("l"));
     $("#dateDay2").text(moment().add(2, "days").format("l"));
     $("#dateDay3").text(moment().add(3, "days").format("l"));
+
+    // cloudIcon = "fas fa-cloud";
+    // sunIcon = "far fa-sun";
+    // rainIcon = "fas fa-cloud-rain";
+    // moonIcon = "far fa-moon";
+    // coldIcon = "far fa-snowflake";
+    // if (response.sys.sunrise < response.coord.dt < response.sys.sunset) {
+    //   $("#conditionsIcon0").addClass("'"+sunIcon+"'")
+    //   else if (response.sys.sunrise > response.coord.dt > response.sys.sunset) {
+    //     $("#conditionsIcon0").addClass("'"+moonIcon+"'")
+    // };
 
     localStorage.setItem("cityInput", JSON.stringify(cityInput));
     var cityList = JSON.parse(localStorage.getItem("cityInput"));
@@ -60,7 +62,7 @@ function getForeCast() {
   var apiKey = "b0346eaaabff07a925bd456a2c1cf5a6";
   var cityInput = $("input").val();
   var queryURL =
-    "http://api.openweathermap.org/data/2.5/forecast?q=" +
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
     cityInput +
     ",&appid=" +
     apiKey +
@@ -92,12 +94,12 @@ function getForeCast() {
     getUV(response.city.coord.lat, response.city.coord.lon);
   });
 }
-// !!!!!!!!GET THIS LAT/LONG LINK WORKING!!!!!!!!!!!!!//
+
 function getUV(latitude, longitude) {
   var apiKey = "b0346eaaabff07a925bd456a2c1cf5a6";
   var cityInput = $("input").val();
   var queryURL =
-    "http://api.openweathermap.org/data/2.5/uvi?q=" +
+    "https://api.openweathermap.org/data/2.5/uvi?q=" +
     cityInput +
     "&appid=" +
     apiKey +
